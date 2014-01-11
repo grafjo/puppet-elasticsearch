@@ -13,6 +13,7 @@ class elasticsearch::configure ($cluster_name) {
   file { '/etc/elasticsearch/elasticsearch.yml':
     ensure  => file,
     content => template("${module_name}/elasticsearch.yml.erb"),
+    notify => Service['elasticsearch'],
   }
 
 }
