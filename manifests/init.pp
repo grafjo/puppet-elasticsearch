@@ -1,7 +1,6 @@
 class elasticsearch (
   $cluster_name = $elasticsearch::params::config_cluster_name,
   $package      = $elasticsearch::params::package_name,
-  $version      = $elasticsearch::params::package_version,
   $repo_name    = $elasticsearch::params::repo_name,
   $repo_baseurl = $elasticsearch::params::repo_baseurl,
   $repo_key     = $elasticsearch::params::repo_key,

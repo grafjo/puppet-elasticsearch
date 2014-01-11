@@ -12,10 +12,8 @@ class elasticsearch::params {
 
   $repo_name = 'elasticsearch'
 
-  $repo_version = '1.0'
-
   $repo_baseurl = $::operatingsystem ? {
-      /(?i)(ubuntu|debian)/ => "http://packages.elasticsearch.org/elasticsearch/${repo_version}",
+      /(?i)(ubuntu|debian)/ => 'http://packages.elasticsearch.org/elasticsearch/1.0/debian',
       default => fail("${::operatingsystem} is not supported by ${module_name}")
   }
 
