@@ -14,7 +14,6 @@ class elasticsearch::package(
   $repo_key,
   $repo_repos,
   $repo_release,
-  $repo_version,
   $repo_pin,
   $package,
   $version,
