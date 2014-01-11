@@ -1,12 +1,12 @@
 class elasticsearch (
   $cluster_name = $elasticsearch::params::config_cluster_name,
   $package      = $elasticsearch::params::package_name,
+  $version      = $elasticsearch::params::package_version,
   $repo_name    = $elasticsearch::params::repo_name,
   $repo_baseurl = $elasticsearch::params::repo_baseurl,
   $repo_key     = $elasticsearch::params::repo_key,
   $repo_repos   = $elasticsearch::params::repo_repos,
   $repo_release = $elasticsearch::params::repo_release,
-  $repo_version = $elasticsearch::params::repo_version,
   $repo_pin     = $elasticsearch::params::repo_pin,
 
 ) inherits elasticsearch::params {
