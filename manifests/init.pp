@@ -12,7 +12,7 @@ class elasticsearch (
   $repo_enabled    = $elasticsearch::params::repo_enabled,
 ) inherits elasticsearch::params {
 
-  anchor {'elasticsearch::start': }->
+  anchor {'elasticsearch::start': } ->
   class {'elasticsearch::repo':
     repo_name    => $repo_name,
     baseurl => $repo_baseurl,
@@ -22,15 +22,15 @@ class elasticsearch (
     pin     => $repo_pin,
     gpgcheck => $repo_gpgcheck,
     enabled  => $repo_enabled,
-  } ~>
+  } ->
   class {'elasticsearch::package':
     package      => $package_name,
     version      => $package_version,
-  } ~>
+  } ->
   class {'elasticsearch::configure':
     cluster_name => $cluster_name,
-  }~>
-  class {'elasticsearch::service': } ~>
+  } ~>
+  class {'elasticsearch::service': } ->
   anchor {'elasticsearch::end': }
 
 }
