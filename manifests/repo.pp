@@ -18,6 +18,9 @@ class elasticsearch::repo (
   $gpgcheck,
   $enabled,
 ) {
+  
+  anchor { 'elasticsearch::repo::begin': }
+  anchor { 'elasticsearch::repo::end': }
 
   case $::osfamily {
     'Debian': {
@@ -28,6 +31,8 @@ class elasticsearch::repo (
         repos      => $repos,
         release    => $release,
         pin        => $pin,
+        require    => Anchor['elasticsearch::repo::begin'],
+        before     => Anchor['elasticsearch::repo::end'],
       }
     }
     'RedHat': {
@@ -37,6 +42,8 @@ class elasticsearch::repo (
         gpgkey    => $key_source,
         gpgcheck  => $gpgcheck,
         enabled   => $enabled,
+        require   => Anchor['elasticsearch::repo::begin'],
+        before    => Anchor['elasticsearch::repo::end'],
       }
     }
     default: { fail("${::osfamily} is not supported by ${module_name}") }
