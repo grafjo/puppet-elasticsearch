@@ -1,24 +1,29 @@
 class elasticsearch (
-  $cluster_name = $elasticsearch::params::config_cluster_name,
-  $package      = $elasticsearch::params::package_name,
-  $version      = $elasticsearch::params::package_version,
-  $repo_name    = $elasticsearch::params::repo_name,
-  $repo_baseurl = $elasticsearch::params::repo_baseurl,
-  $repo_key     = $elasticsearch::params::repo_key,
-  $repo_repos   = $elasticsearch::params::repo_repos,
-  $repo_release = $elasticsearch::params::repo_release,
-  $repo_pin     = $elasticsearch::params::repo_pin,
-
+  $cluster_name    = $elasticsearch::params::config_cluster_name,
+  $package         = $elasticsearch::params::package_name,
+  $version         = $elasticsearch::params::package_version,
+  $repo_name       = $elasticsearch::params::repo_name,
+  $repo_baseurl    = $elasticsearch::params::repo_baseurl,
+  $repo_key_source = $elasticsearch::params::repo_key_source,
+  $repo_repos      = $elasticsearch::params::repo_repos,
+  $repo_release    = $elasticsearch::params::repo_release,
+  $repo_pin        = $elasticsearch::params::repo_pin,
+  $repo_gpgcheck   = $elasticsearch::params::repo_gpgcheck,
+  $repo_enabled    = $elasticsearch::params::repo_enabled,
 ) inherits elasticsearch::params {
 
   anchor {'elasticsearch::start': }->
-  class {'elasticsearch::package':
+  class {'elasticsearch::repo':
     repo_name    => $repo_name,
-    repo_baseurl => $repo_baseurl,
-    repo_key     => $repo_key,
-    repo_repos   => $repo_repos,
-    repo_release => $repo_release,
-    repo_pin     => $repo_pin,
+    baseurl => $repo_baseurl,
+    key_source => $repo_key_source,
+    repos   => $repo_repos,
+    release => $repo_release,
+    pin     => $repo_pin,
+    gpgcheck => $repo_gpgcheck,
+    enabled  => $repo_enabled,
+  } ~>
+  class {'elasticsearch::package':
     package      => $package_name,
     version      => $package_version,
   } ~>
