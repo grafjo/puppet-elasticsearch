@@ -18,7 +18,7 @@ class elasticsearch::repo (
   $gpgcheck,
   $enabled,
 ) {
-  
+
   anchor { 'elasticsearch::repo::begin': }
   anchor { 'elasticsearch::repo::end': }
 
