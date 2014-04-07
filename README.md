@@ -13,12 +13,18 @@ Supported plattform:
 
 ## Installation
 
-This modules depends on [grafjo/openjdk7](https://github.com/grafjo/puppet-openjdk7). 
+This modules depends on:
+* [grafjo/openjdk7](https://github.com/grafjo/puppet-openjdk7)
+* [puppetlabs/apt](https://github.com/puppetlabs/puppetlabs-apt)
+* [puppetlabs/stdlib](https://github.com/puppetlabs/puppetlabs-stdlib)
+
 So all repositories have to be checked out:
 
 ```bash
-git clone git://github.com/synyx/puppet-elasticsearch.git modules/elasticsearch
-git clone git://github.com/graf/puppet-openjdk7.git modules/openjdk7
+git clone https://github.com/synyx/puppet-elasticsearch.git modules/elasticsearch
+git clone https://github.com/graf/puppet-openjdk7.git modules/openjdk7
+git clone https://github.com/puppetlabs/puppetlabs-apt.git modules/apt
+git clone https://github.com/puppetlabs/puppetlabs-stdlib.git modules/stdlib
 ```
 
 ##Usage
