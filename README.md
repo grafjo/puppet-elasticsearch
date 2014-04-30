@@ -9,6 +9,7 @@ A Puppet module to install elasticsearch.
 Supported plattforms:
 * Debian 7
 * Ubuntu 12.04
+* Ubuntu 14.04
 * CentOS 6.5
 
 There is an implicit dependency to java - make sure to setup java properly before using this module!
