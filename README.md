@@ -6,7 +6,7 @@
 
 A Puppet module to install elasticsearch.
 
-Supported plattform:
+Supported plattforms:
 * Debian 7
 * Ubuntu 12.04
 * CentOS 6.5
