@@ -14,6 +14,7 @@ class elasticsearch (
   $package_version = $elasticsearch::params::package_version,
   $repo_name       = $elasticsearch::params::repo_name,
   $repo_baseurl    = $elasticsearch::params::repo_baseurl,
+  $repo_key        = $elasticsearch::params::repo_key,
   $repo_key_source = $elasticsearch::params::repo_key_source,
   $repo_repos      = $elasticsearch::params::repo_repos,
   $repo_release    = $elasticsearch::params::repo_release,
@@ -26,6 +27,7 @@ class elasticsearch (
   class {'elasticsearch::repo':
     repo_name  => $repo_name,
     baseurl    => $repo_baseurl,
+    key        => $repo_key,
     key_source => $repo_key_source,
     repos      => $repo_repos,
     release    => $repo_release,
